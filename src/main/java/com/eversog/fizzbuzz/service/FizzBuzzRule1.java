@@ -14,16 +14,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Profile("Rule1")
-public class FizzBuzzRule1 implements FizzBuzzRule {
+public class FizzBuzzRule1 extends BaseFizzBuzzRule {
 
 	private static final Logger LOG = LoggerFactory.getLogger(FizzBuzzRule1.class);
 
 	@Override
-	public String apply(int num) {
+	public String apply(int num) throws InvalidEntryException {
+		validate(num);
+
 		String buffer;
-		if (num < 1)
-			buffer = ERROR;
-		else if (num % 15 == 0)
+		if (num % 15 == 0)
 			buffer = FIZZ_BUZZ;
 		else if (num % 3 == 0)
 			buffer = FIZZ;

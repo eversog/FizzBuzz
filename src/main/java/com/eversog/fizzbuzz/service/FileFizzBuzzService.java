@@ -32,7 +32,11 @@ public class FileFizzBuzzService implements FizzBuzzService {
 		LOG.info("Using rule: {}", activeProfiles);
 		try(PrintWriter writer = new PrintWriter(new FileWriter("src/main/resources/FizzBuzz.txt"))) {
 			IntStream.rangeClosed(1, maxNum).forEach(i -> {
-				writer.println(fizzBuzzRule.apply(i));
+				try {
+					writer.println(fizzBuzzRule.apply(i));
+				} catch(InvalidEntryException e) {
+					LOG.error("Error occurred", e);
+				}
 			});
 		} catch(Exception e) {
 			LOG.error("Error occurred", e);

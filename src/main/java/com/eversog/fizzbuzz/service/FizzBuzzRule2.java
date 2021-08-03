@@ -14,28 +14,26 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Profile("Rule2")
-public class FizzBuzzRule2 implements FizzBuzzRule {
+public class FizzBuzzRule2 extends BaseFizzBuzzRule {
 
 	private static final Logger LOG = LoggerFactory.getLogger(FizzBuzzRule2.class);
 
 	private StringBuilder buffer = new StringBuilder();
 
 	@Override
-	public String apply(int num) {
+	public String apply(int num) throws InvalidEntryException {
+		validate(num);
+
 		buffer.setLength(0);
-		if (num < 1)
-			buffer.append(ERROR);
-		else {
-			String numStr = Integer.toString(num);
-			if (num % 3 == 0 || numStr.contains("3"))
-				buffer.append(FIZZ);
+		String numStr = Integer.toString(num);
+		if (num % 3 == 0 || numStr.contains("3"))
+			buffer.append(FIZZ);
 
-			if (num % 5 == 0 || numStr.contains("5"))
-				buffer.append(BUZZ);
+		if (num % 5 == 0 || numStr.contains("5"))
+			buffer.append(BUZZ);
 
-			if (buffer.length() == 0)
-				buffer.append(numStr);
-		}
+		if (buffer.length() == 0)
+			buffer.append(numStr);
 
 		LOG.info("{}: {}", num, buffer);
 		return buffer.toString();
