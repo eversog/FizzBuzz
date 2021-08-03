@@ -10,6 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author gary
+ *
+ * Write file with results of "FizzBuzz" game, depending on which rule is required (configured in application.properties).
+ */
 @Service
 public class FizzBuzzService {
 
@@ -18,8 +23,8 @@ public class FizzBuzzService {
 	@Autowired
 	private FizzBuzz fizzBuzz;
 
-    @Value("${spring.profiles.active:}")
-    private String activeProfiles;
+	@Value("${spring.profiles.active:}")
+	private String activeProfiles;
 
 	public void executeFizzBuzz(int maxNum) {
 		LOG.info("Using rule: {}", activeProfiles);

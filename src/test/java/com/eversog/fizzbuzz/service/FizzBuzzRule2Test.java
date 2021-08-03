@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import junit.framework.Assert;
 
-public class FizzBuzzRule1Test2 {
+public class FizzBuzzRule2Test {
 
 	private FizzBuzzRule2 fizzBuzzRule2 = new FizzBuzzRule2();
 
