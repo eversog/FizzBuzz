@@ -1,6 +1,6 @@
 package com.eversog.fizzbuzz.service;
 
-public interface FizzBuzz {
+public interface FizzBuzzRule {
 
 	static final String ERROR = "Error";
 	static final String FIZZ = "Fizz";

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Profile("Rule2")
-public class FizzBuzzRule2 implements FizzBuzz {
+public class FizzBuzzRule2 implements FizzBuzzRule {
 
 	private static final Logger LOG = LoggerFactory.getLogger(FizzBuzzRule2.class);
 
