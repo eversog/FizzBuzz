@@ -15,7 +15,7 @@ public class FizzBuzzApplication {
 	private static final Logger LOG = LoggerFactory.getLogger(FizzBuzzApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(FizzBuzzApplication.class);
+		SpringApplication.run(FizzBuzzApplication.class, args);
 	}
 
 	@Bean
